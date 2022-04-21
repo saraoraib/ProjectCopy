@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Forgot Password</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="css/style3.css" rel="stylesheet">
+    </head>
+    <body class="passBody">
+        <div class="container3">
+                 <form action="/auth/forgotPass" method="POST" class="forgotPass-form">
+                     <h2 class="title">Forgot your password ?</h2>
+                     <p class="text">Don't worry! Enter your email here to reset your password.</p>
+                     {{#if message }}
+                     <h4 class="errorMsg">{{message}}</h4>
+                     {{/if}}
+                     <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                         <input type="email" placeholder="Email" name="email" required>
+                     </div>
+                     <input class="btn" type="submit" value="Reset Password">
+                 </form> 
+              </div>  
+    </body>
+</html>
