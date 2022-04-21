@@ -29,10 +29,11 @@ router.post('/signin' , async (req,res)=>{
              console.log(error);
         }
          if(results.length > 0){
+           let type = results.type;
             bcrypt.compare(password, results[0].password,(err,response)=>{
                 if(response){
                     req.session.userID = req.body;
-                    if(email === 'admin@gmail.com'){
+                    if(type === 'admin'){
                       return  res.redirect('/admin');
                     }
                     else{
