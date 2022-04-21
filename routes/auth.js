@@ -24,22 +24,20 @@ const db = mysql.createConnection({
 router.post('/signin' , async (req,res)=>{
     console.log(req.body);
     const { email , password} = req.body;
-    db.query('SELECT * FROM user WHERE email  = ?',[email] , (error , results) =>{
+    db.query('SELECT * FROM user WHERE email  = ?',[email] , (error , results ) =>{
           if(error){
              console.log(error);
         }
          if(results.length > 0){
-           let type = results.type;
             bcrypt.compare(password, results[0].password,(err,response)=>{
                 if(response){
                     req.session.userID = req.body;
-                    if(email === 'admin@gmail.com'){
-                      return  res.redirect('/admin');
-                    }
-                    else{
-                      console.log('h')
-                      return  res.redirect('/user'); 
-                    }
+                      if(results[0].type === 'admin'){
+                        return  res.redirect('/admin');
+                      }
+                      else{
+                        return  res.redirect('/user'); 
+                      }
                 }
                 else{
                     return res.render('signin' , {
