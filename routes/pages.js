@@ -59,6 +59,25 @@ router.get('/user',redirectLogin, (req, res) => {
     res.render('user');
 });
 
+router.get('/resendEmail', (req, res) => {
+    res.render('emailVerfication');
+}); 
+
+router.get('/addApartment', (req, res) => {
+    res.render('addApartment');
+}); 
+
+router.get('/editDetails', (req, res) => {
+    res.render('edit');
+}); 
+
+router.get('/profile', (req, res) => {
+    db.query('SELECT * FROM user WHERE id = ? ' ,[req.params.id], (error , rows ) =>{
+        res.render('profile',{rows});
+    })
+    
+});
+
 router.get('/userapartment', (req, res) => {
     db.query('SELECT * FROM apartment ' , (error , rows ) =>{
         
@@ -79,18 +98,6 @@ router.get('/adminapartment', (req, res) => {
     })
   
 });
-
-router.get('/resendEmail', (req, res) => {
-    res.render('emailVerfication');
-}); 
-
-router.get('/addApartment', (req, res) => {
-    res.render('addApartment');
-}); 
-
-router.get('/editDetails', (req, res) => {
-    res.render('edit');
-}); 
 
 router.get('/apartments', (req, res) => {
    

@@ -32,6 +32,7 @@ router.post('/signin' , async (req,res)=>{
             bcrypt.compare(password, results[0].password,(err,response)=>{
                 if(response){
                     req.session.userID = req.body;
+                    res.render('profile',{results});
                       if(results[0].type === 'admin'){
                         return  res.redirect('/admin');
                       }
@@ -87,12 +88,7 @@ router.post('/signup' , async (req,res)=> {
                 if(error){
                     console.log(error)
                 } else {
-                  if(email === 'admin@gmail.com'){
-                    return  res.redirect('/admin');
-                  }
-                  else{
-
-                  
+                 
                      const transporter = nodemailer.createTransport({
                         service: 'gmail',
                         auth: {
@@ -119,7 +115,7 @@ router.post('/signup' , async (req,res)=> {
                           res.render('emailVerfication');
                         }
                       });
-                     }
+                     
                 }
             
             })

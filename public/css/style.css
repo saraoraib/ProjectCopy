@@ -409,7 +409,7 @@ input {
   padding: 20px;
 }
 
-.room h3 {
+.room h3 ,h4{
   font-weight: 400;
   margin-bottom: 10px;
 }
