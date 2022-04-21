@@ -29,6 +29,7 @@ router.get('/', (req, res) => {
     res.render('home');
 });
 
+
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
@@ -56,6 +57,27 @@ router.get('/admin',redirectLogin, (req, res) => {
 
 router.get('/user',redirectLogin, (req, res) => {
     res.render('user');
+});
+
+router.get('/userapartment', (req, res) => {
+    db.query('SELECT * FROM apartment ' , (error , rows ) =>{
+        
+        if(error)console.log(error)
+        else{
+            res.render('userApartment',{rows});
+        }
+    })
+});
+
+router.get('/adminapartment', (req, res) => {
+    db.query('SELECT * FROM apartment ' , (error , rows ) =>{
+        
+        if(error)console.log(error)
+        else{
+            res.render('adminApartment',{rows});
+        }
+    })
+  
 });
 
 router.get('/resendEmail', (req, res) => {

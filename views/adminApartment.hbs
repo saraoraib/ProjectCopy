@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/style.css">
+    <title>Apartments</title>
+</head>
+<body>
+  <header class="header" id="navigation-menu">
+    <div class="container" >
+      <nav>
+        <a href="#" class="logo"> <img src="image/logo.png" alt=""> </a>
+
+        <ul class="nav-menu">
+          <li> <a href="/admin" class="nav-link">Home</a> </li>
+          <li> <a href="/addapartment" class="nav-link">add Apartment</a> </li>
+          <li> <a href="/editDetails" class="nav-link">edit details</a> </li>
+          <li><a href = "/logout" class="nav-link">LOG Out </a></li>
+        </ul>
+
+        <div class="hambuger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+<section class="room top" id="departments" >
+    <div class="container">
+      <div class="heading_top flex1">
+        <div class="heading">
+          <h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
+          <h2>Apartments</h2>
+        </div>
+      </div>
+     
+
+      <div class="content grid">
+          {{#each rows}}
+        <div class="box">
+          <div class="img">
+            <img src="data:image/png;base64,{{imageHere}}" alt="">
+          </div>
+          <div class="text">
+            <h3>{{roommates}} Roommates</h3>
+            <p> <span>$</span>{{monthlyCost}} <span>/per month</span> </p>
+          </div>
+        </div>
+     {{/each}}   
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
