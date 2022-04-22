@@ -31,8 +31,10 @@ db.connect((error) => {
    const roomCount = req.body.roomCount;
    const ownerName = req.body.ownerName;
    const ownerPhone = req.body.ownerPhone;
+   const roommates = req.body.roommates;
+   const remaining = req.body.Remaining;
    const image = req.file.buffer.toString('base64');
-   db.query('INSERT INTO apartment SET ?' , {monthlyCost:cost , space :space , description:description , city :city , location :location , roomCount:roomCount , ownerName:ownerName , ownerPhone:ownerPhone , imageHere:image } , (error,results)=>{
+   db.query('INSERT INTO apartment SET ?' , {monthlyCost:cost , space :space , description:description , city :city , location :location , roomCount:roomCount , ownerName:ownerName , ownerPhone:ownerPhone , imageHere:image , roommates:roommates , remainingRoommates:remaining } , (error,results)=>{
      if(error){
        console.log(error);
      } 

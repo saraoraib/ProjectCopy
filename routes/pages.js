@@ -79,7 +79,7 @@ router.get('/profile', (req, res) => {
 });
 
 router.get('/userapartment', (req, res) => {
-    db.query('SELECT * FROM apartment ' , (error , rows ) =>{
+    db.query('SELECT * FROM apartment WHERE NOT remainingRoommates = 0' , (error , rows ) =>{
         
         if(error)console.log(error)
         else{
@@ -89,7 +89,7 @@ router.get('/userapartment', (req, res) => {
 });
 
 router.get('/adminapartment', (req, res) => {
-    db.query('SELECT * FROM apartment ' , (error , rows ) =>{
+    db.query('SELECT * FROM apartment WHERE NOT remainingRoommates = 0 ' , (error , rows ) =>{
         
         if(error)console.log(error)
         else{
@@ -101,7 +101,7 @@ router.get('/adminapartment', (req, res) => {
 
 router.get('/apartments', (req, res) => {
    
-    db.query('SELECT * FROM apartment ' , (error , rows ) =>{
+    db.query('SELECT * FROM apartment WHERE NOT remainingRoommates = 0 ' , (error , rows ) =>{
         
         if(error)console.log(error)
         else{
