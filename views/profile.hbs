@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h1>Profile Page</h1> 
+ {{#each rows}}
+<p>username: {{username}}</p>
+<p>email: {{email}}</p>
+<p>gender: {{gender}}</p>
+<p>phonenumber: {{phonenumber}}</p>
+<p>university: {{university}}</p>
+<p>Account creation date: {{creationDate}}</p>
+<form action="/user/edit/{{id}}" method="get">
+<input type="submit" value="edit profile info">
+</form>
+<form action="/resetPass" method="get">
+   <input type="submit" value="change password"> 
+</form>
+ {{/each}} 
+</body>
+</html>
